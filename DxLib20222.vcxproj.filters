@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map">
+      <UniqueIdentifier>{66c24c3a-8d15-4a97-beb9-b51c7232355d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Draw">
+      <UniqueIdentifier>{609e0238-abba-477a-8100-cac9bbe3873c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Transform">
+      <UniqueIdentifier>{4a869a76-f504-4396-8a71-b91f9aec21f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Player">
+      <UniqueIdentifier>{6e475dc6-9952-4a7f-912b-b44e37062de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Collision">
+      <UniqueIdentifier>{600b133a-e977-4779-b0ad-128706e6b279}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>ヘッダー ファイル\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ヘッダー ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Tranceform.cpp">
+      <Filter>ヘッダー ファイル\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Draw.cpp">
+      <Filter>ヘッダー ファイル\Draw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Map.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Tranceform.h">
+      <Filter>ヘッダー ファイル\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Draw.h">
+      <Filter>ヘッダー ファイル\Draw</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
