@@ -13,14 +13,25 @@ void Drawing::Initialize(char* key) {
 		 return -1;
 	 }*/
 }
+
 void Drawing::Update() {
 	//キー入力
 	GetHitKeyStateAll(keyBuf_);
 	if (keyBuf_[KEY_INPUT_1] == 1) { isPenF_ = true; }
 	if (keyBuf_[KEY_INPUT_2] == 1) { isPenF_ = false; isDrag_ = false; }
 	if (keyBuf_[KEY_INPUT_0] == 1) { linesegCnt_ = 0; }
-	if (keyBuf_[KEY_INPUT_P] == 1) { DrawFlag = true; }
 
+	if (DrawFlag == false) {
+		GetTimer++;
+		if (keyBuf_[KEY_INPUT_P] == 1&&GetTimer >= 30) { DrawFlag = true; GetTimer = 0;
+		}
+	}
+	else if (DrawFlag == true) {
+		GetTimer++;
+		if (keyBuf_[KEY_INPUT_P] == 1&&GetTimer >=60) { DrawFlag = false; GetTimer = 0;
+		}
+		
+	}
 	//マウス座標取得
 	GetMousePoint(&posX_, &posY_);
 
@@ -57,6 +68,7 @@ void Drawing::Update() {
 	else {//マウスのキーは押されていない
 		if (isDrag_)isDrag_ = false;  //ドラッグフラグをオフにする
 	}
+	
 }
 void Drawing::Draw() {
 	//bline配列の情報を描画
@@ -76,7 +88,7 @@ void Drawing::Draw() {
 	//文字等描画
 	DrawString(0, 0, "キー操作：0=全削除 1=ペン 2=消しゴム", 0x0);
 
-	
+
 	if (isPenF_) {
 		DrawString(0, 16, "現在のモード：ペン", 0x0);
 		DrawLine(posX_, posY_ - 10, posX_, posY_ + 10, 0x0);
@@ -87,5 +99,9 @@ void Drawing::Draw() {
 		DrawBox(posX_ - 20, posY_ - 20, posX_ + 20, posY_ + 20, 0xffffff, TRUE);
 		DrawBox(posX_ - 20, posY_ - 20, posX_ + 20, posY_ + 20, 0x0, FALSE);
 	}
-	
+
+	DrawFormatString(64, 64, 0xff0000, "%d", DrawFlag);
+	DrawFormatString(96, 96, 0xff0000, "%d", GetTimer);
 }
+	
+ 

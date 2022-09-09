@@ -4,7 +4,7 @@
 #include"Map.h"
 #include"Draw.h"
 
-class Player :public Tranceform,public Map,public Drawing {
+class Player :public Tranceform,public Map{
 
 
 
@@ -13,13 +13,13 @@ public:
 
 	Player();
 	~Player();
-	void Update();
+	void Update(int isPlayerMoveFlag);
 	void Draw();
 
-private:
+public:
 
-
-
+	
+	
    
 
 };
