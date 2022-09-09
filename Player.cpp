@@ -9,7 +9,6 @@ Player::Player() {
 	playertranceform.gravity = 0;
 	playertranceform.oldx = 0;
 	playertranceform.oldy = 0;
-	
 	playertranceform.rightTopX = 0;
 	playertranceform.rightTopY = 0;
 	playertranceform.leftTopY = 0;
@@ -30,17 +29,16 @@ Player::Player() {
 
 Player::~Player() {
 
-
 }
 
 void Player::Update() {
     playertranceform.oldx = playertranceform.x;
     playertranceform.oldy = playertranceform.y;
-	
-	playertranceform.y += playertranceform.gravity;
-	playertranceform.gravity += 1;
-	playertranceform.x += playertranceform.speed;
-    
+    if (DrawFlag == false) {
+        playertranceform.y += playertranceform.gravity;
+        playertranceform.gravity += 1;
+        playertranceform.x += playertranceform.speed;
+    }
     //左上のマップチップ上での座標を取得
     playertranceform.leftTopX = (playertranceform.x - playertranceform.radius) / BlockSize;
     playertranceform.leftTopY = (playertranceform.y - playertranceform.radius) / BlockSize;
@@ -145,5 +143,5 @@ void Player::Draw() {
 	DrawBox(playertranceform.x - playertranceform.radius, playertranceform.y - playertranceform.radius, playertranceform.x + playertranceform.radius, playertranceform
 		.y + playertranceform.radius, 0xffff0, true);
 
-	DrawFormatString(64, 64, 0xff0000, "lefttopx:%d", playertranceform.leftTopX);
+    DrawFormatString(64, 64, 0xff0000, "%d", DrawFlag);
 }

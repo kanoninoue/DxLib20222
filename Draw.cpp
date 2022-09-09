@@ -19,7 +19,7 @@ void Drawing::Update() {
 	if (keyBuf_[KEY_INPUT_1] == 1) { isPenF_ = true; }
 	if (keyBuf_[KEY_INPUT_2] == 1) { isPenF_ = false; isDrag_ = false; }
 	if (keyBuf_[KEY_INPUT_0] == 1) { linesegCnt_ = 0; }
-
+	if (keyBuf_[KEY_INPUT_P] == 1) { DrawFlag = true; }
 
 	//マウス座標取得
 	GetMousePoint(&posX_, &posY_);
@@ -60,19 +60,23 @@ void Drawing::Update() {
 }
 void Drawing::Draw() {
 	//bline配列の情報を描画
-	for (int i = 0; i < linesegCnt_; i++) {
-		switch (bline_[i].pType)
-		{
-		case  Drawing::Pen:
-			DrawLine(bline_[i - 1].blackLineX, bline_[i - 1].blackLineY, bline_[i].blackLineX, bline_[i].blackLineY, 0x0, 3);
-			break;
-		case  Drawing::Eraser:
-			DrawBox(bline_[i].blackLineX - 20, bline_[i].blackLineY - 20, bline_[i].blackLineX + 20, bline_[i].blackLineY + 20, 0xffffff, TRUE);
-			break;
+	if (DrawFlag == 1) {
+		for (int i = 0; i < linesegCnt_; i++) {
+			switch (bline_[i].pType)
+			{
+			case  Drawing::Pen:
+				DrawLine(bline_[i - 1].blackLineX, bline_[i - 1].blackLineY, bline_[i].blackLineX, bline_[i].blackLineY, 0x0, 3);
+				break;
+			case  Drawing::Eraser:
+				DrawBox(bline_[i].blackLineX - 20, bline_[i].blackLineY - 20, bline_[i].blackLineX + 20, bline_[i].blackLineY + 20, 0xffffff, TRUE);
+				break;
+			}
 		}
 	}
 	//文字等描画
 	DrawString(0, 0, "キー操作：0=全削除 1=ペン 2=消しゴム", 0x0);
+
+	
 	if (isPenF_) {
 		DrawString(0, 16, "現在のモード：ペン", 0x0);
 		DrawLine(posX_, posY_ - 10, posX_, posY_ + 10, 0x0);
@@ -83,4 +87,5 @@ void Drawing::Draw() {
 		DrawBox(posX_ - 20, posY_ - 20, posX_ + 20, posY_ + 20, 0xffffff, TRUE);
 		DrawBox(posX_ - 20, posY_ - 20, posX_ + 20, posY_ + 20, 0x0, FALSE);
 	}
+	
 }
