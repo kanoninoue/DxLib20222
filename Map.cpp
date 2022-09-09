@@ -10,6 +10,7 @@ Map::~Map() {
 }
 
 void Map::Update() {
+   
 
 }
 

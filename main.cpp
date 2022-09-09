@@ -1,6 +1,8 @@
 #include "DxLib.h"
 #include "Map.h"
 #include "Draw.h"
+#include "Player.h"
+//#include "Collision.h"
 // ウィンドウのタイトルに表示する文字列
 const char TITLE[] = "xx2x_xx_ナマエ: タイトル";
 
@@ -42,14 +44,20 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 
 	// ゲームループで使う変数の宣言
+	//マップ
 	Map* map;
 	map = new Map();
 	//お絵描き変数
 	Drawing* drawing = new Drawing();
-
+	//プレイヤー
+	Player* player = new Player();
+	//Collision* collision;
+	//collision = new Collision();
 	//キー入力用変数
 	char KeyBuf[256];
 	drawing->Initialize(KeyBuf);
+
+	
 	// 最新のキーボード情報用
 	char keys[256] = {0};
 
@@ -70,14 +78,19 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		GetHitKeyStateAll(KeyBuf);
 
 		drawing->Update();
-		map->Update();
+
+		player->Update();
+		//collision->Update();
+		
+
 
 		// 描画処理
 		ClearDrawScreen();
 		drawing->Draw();
 		map->Draw();
+		player->Draw();
+		//collision->Draw();
 		
-
 
 		//---------  ここまでにプログラムを記述  ---------//
 		// (ダブルバッファ)裏面

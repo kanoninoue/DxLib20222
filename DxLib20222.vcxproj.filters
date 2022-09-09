@@ -45,6 +45,9 @@
     <ClCompile Include="Draw.cpp">
       <Filter>ヘッダー ファイル\Draw</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>ヘッダー ファイル\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="Draw.h">
       <Filter>ヘッダー ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>ヘッダー ファイル\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
