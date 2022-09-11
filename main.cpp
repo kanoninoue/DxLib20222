@@ -7,10 +7,10 @@
 const char TITLE[] = "xx2x_xx_ナマエ: タイトル";
 
 // ウィンドウ横幅
-const int WIN_WIDTH = 640;
+const int WIN_WIDTH = 1504;
 
 // ウィンドウ縦幅
-const int WIN_HEIGHT = 640;
+const int WIN_HEIGHT = 736;
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine,
                    _In_ int nCmdShow) {
@@ -57,7 +57,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	char KeyBuf[256];
 	drawing->Initialize(KeyBuf);
 
-	
+	player->Initialize(KeyBuf);
 	// 最新のキーボード情報用
 	char keys[256] = {0};
 
@@ -79,9 +79,31 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		
 		drawing->Update();
 		player->Update(drawing->GetDrawMode(), drawing->GetTopPosX()
-			,drawing->GetTopUnderX(),drawing->GetTopPosY(),drawing->GetLineLeftX(),
-			drawing->GetLineRightX(),drawing->GetLineLeftY());
-		
+			, drawing->GetTopUnderX(), drawing->GetTopPosY(), drawing->GetLineLeftX(),
+			drawing->GetLineRightX(), drawing->GetLineLeftY(), drawing->GetJumpPosX(),
+			drawing->GetJumpPosY(), drawing->GetJumpbottomX(),
+			drawing->AGetTopPosX(),
+			drawing->AGetTopUnderX(),
+			drawing->AGetTopPosY(), drawing->BGetTopPosX(),
+			drawing->BGetTopUnderX(),
+			drawing->BGetTopPosY(),
+			drawing->AGetLineLeftX(),
+		drawing->AGetLineRightX(),
+		drawing->AGetLineLeftY(),
+
+		drawing->BGetLineLeftX(),
+		drawing->BGetLineRightX(),
+		drawing->BGetLineLeftY(),
+
+			drawing->AGetJumpPosX(),
+		drawing->AGetJumpbottomX(),
+		drawing->AGetJumpPosY(),
+		drawing->BGetJumpPosX(),
+		drawing->BGetJumpbottomX(),
+		drawing->BGetJumpPosY()
+
+
+		);
 
 
 		//collision->Update();
