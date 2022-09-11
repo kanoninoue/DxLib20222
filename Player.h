@@ -13,13 +13,13 @@ public:
 
 	Player();
 	~Player();
-	void Update(int isPlayerMoveFlag);
+	void Update(int isPlayerMoveFlag,int boxpostopX,int boxposunderX,int boxpostopY,int lineposleftX,int lineposrightX,int lineposleftY);
 	void Draw();
 
 public:
 
 	
-	
+	int wall;
    
 
 };

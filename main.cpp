@@ -78,7 +78,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		GetHitKeyStateAll(KeyBuf);
 		
 		drawing->Update();
-		player->Update(drawing->GetDrawMode());
+		player->Update(drawing->GetDrawMode(), drawing->GetTopPosX()
+			,drawing->GetTopUnderX(),drawing->GetTopPosY(),drawing->GetLineLeftX(),
+			drawing->GetLineRightX(),drawing->GetLineLeftY());
 		
 
 

@@ -24,6 +24,7 @@ struct PlayerTranceform {
     int rightBottomoldY;
     int leftBottomoldX;
     int leftBottomoldY;
+
 };
 
 class Tranceform {

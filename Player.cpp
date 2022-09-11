@@ -26,7 +26,7 @@ Player::Player() {
 	playertranceform.rightBottomoldY = 0;
 	playertranceform.leftBottomoldX = 0;
 	playertranceform.leftBottomoldY = 0;
-
+	wall = 0;
 
 }
 
@@ -34,10 +34,10 @@ Player::~Player() {
 
 }
 
-void Player::Update(int isPlayerMoveFlag) {
+void Player::Update(int isPlayerMoveFlag,int boxpostopx,int boxposunderX, int boxpostopY, int lineposleftX, int lineposrightX, int lineposleftY) {
 	GetDrawMode();
 
-
+	
 	
 		playertranceform.oldx = playertranceform.x;
 		playertranceform.oldy = playertranceform.y;
@@ -45,6 +45,20 @@ void Player::Update(int isPlayerMoveFlag) {
 		playertranceform.y += playertranceform.gravity;
 		playertranceform.gravity += 1;
 		playertranceform.x += playertranceform.speed;
+		if (playertranceform.x + playertranceform.radius >= boxpostopx &&
+			playertranceform.x - playertranceform.radius <= boxposunderX&&playertranceform.y<=boxpostopY)
+		{
+			playertranceform.gravity = 0;
+			
+			playertranceform.y = boxpostopY - playertranceform.radius;
+		}
+		if (playertranceform.x + playertranceform.radius >= /*rightx2*/ lineposrightX &&
+			playertranceform.x - playertranceform.radius <= /*leftx2*/lineposleftX && playertranceform.y <= /*lefty2*/lineposleftY )
+		{
+			playertranceform.gravity = 0;
+
+			playertranceform.y = lineposleftY - playertranceform.radius;
+		}
 	    }
 	//左上のマップチップ上での座標を取得
 	playertranceform.leftTopX = (playertranceform.x - playertranceform.radius) / BlockSize;
@@ -141,7 +155,7 @@ void Player::Update(int isPlayerMoveFlag) {
 		playertranceform.gravity = 0;
 	}
 
-
+	
 
 }
 
@@ -150,6 +164,7 @@ void Player::Draw() {
 	DrawBox(playertranceform.x - playertranceform.radius, playertranceform.y - playertranceform.radius, playertranceform.x + playertranceform.radius, playertranceform
 		.y + playertranceform.radius, 0xffff0, true);
 
-	
+	//DrawFormatString(25, 250, 0xff00ff, "posx1:%d", , true);
+	//DrawFormatString(25, 275, 0xff00ff, "posy1:%d", PosBoxUnderX2, true);
 }
 
