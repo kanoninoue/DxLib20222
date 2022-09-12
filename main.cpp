@@ -77,7 +77,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		// XVˆ—
 		GetHitKeyStateAll(KeyBuf);
 		
-		drawing->Update();
+		drawing->Update(player->GetSceneNumber());
 		player->Update(drawing->GetDrawMode(), drawing->GetTopPosX()
 			, drawing->GetTopUnderX(), drawing->GetTopPosY(), drawing->GetLineLeftX(),
 			drawing->GetLineRightX(), drawing->GetLineLeftY(), drawing->GetJumpPosX(),
@@ -94,14 +94,47 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		drawing->BGetLineLeftX(),
 		drawing->BGetLineRightX(),
 		drawing->BGetLineLeftY(),
-
-			drawing->AGetJumpPosX(),
+		drawing->AGetJumpPosX(),
 		drawing->AGetJumpbottomX(),
 		drawing->AGetJumpPosY(),
 		drawing->BGetJumpPosX(),
 		drawing->BGetJumpbottomX(),
-		drawing->BGetJumpPosY()
+		drawing->BGetJumpPosY(),
 
+		drawing->CGetLineLeftX(),
+		drawing->CGetLineRightX(),
+		drawing->CGetLineLeftY(), 
+		
+		 
+		
+
+		drawing->DGetLineLeftX(),
+		drawing->DGetLineRightX(),
+		drawing->DGetLineLeftY(), 
+		drawing->CGetJumpPosX(),
+		drawing->CGetJumpbottomX(),
+		drawing->CGetJumpPosY(),
+		drawing->DGetJumpPosX(),
+		drawing->DGetJumpbottomX(),
+		drawing->DGetJumpPosY(),
+		
+		
+		drawing->EGetLineLeftX(),
+		drawing->EGetLineRightX(),
+		drawing->EGetLineLeftY(),
+		drawing->FGetLineLeftX(), 
+		drawing->FGetLineRightX(),
+		drawing->FGetLineLeftY(), 
+		
+		drawing->EGetJumpPosX(),
+		drawing->EGetJumpbottomX(),
+		drawing->EGetJumpPosY(), 
+		
+		
+		drawing->FGetJumpPosX(),
+		drawing->FGetJumpbottomX(), 
+		drawing->FGetJumpPosY()
+		
 
 		);
 
@@ -112,8 +145,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// •`‰æˆ—
 		ClearDrawScreen();
-		drawing->Draw();
-		map->Draw();
+		drawing->Draw(player->GetSceneNumber());
+		map->Draw(player->GetSceneNumber());
 		player->Draw();
 		//collision->Draw();
 		

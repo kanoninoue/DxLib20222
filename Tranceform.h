@@ -24,6 +24,8 @@ struct PlayerTranceform {
     int rightBottomoldY;
     int leftBottomoldX;
     int leftBottomoldY;
+    int GoalX;
+    int GoalY;
 
 };
 
